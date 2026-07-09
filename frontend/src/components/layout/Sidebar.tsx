@@ -62,6 +62,7 @@ const Sidebar = ({ onSelectUser }: { onSelectUser?: (user: any) => void }) => {
             <UserCard
               key={u._id}
               user={u}
+              isSelected={false}
               onClick={() => onSelectUser?.(u)}
             />
           ))

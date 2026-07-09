@@ -14,7 +14,12 @@ import { useCreateGroupChat } from "../../hooks/tanstackQuery/useGroupChat";
 import { useFetchUsers } from "../../hooks/tanstackQuery/useUserApi";
 import useFuncDebounce from "../../hooks/useDebounce";
 
-import type { User } from "../../types/user";
+type GroupMemberCandidate = {
+  id: number;
+  fullName?: string;
+  avatarUrl?: string;
+  username: string;
+};
 
 function Avatar({
   user,
@@ -65,7 +70,7 @@ export default function CreateGroupModal({ onClose, currentUserId }: Props) {
   const [search, setSearch] = useState("");
   const [debounceSearch, setDebounceSearch] = useState("");
 
-  const [selected, setSelected] = useState<User[]>([]);
+  const [selected, setSelected] = useState<GroupMemberCandidate[]>([]);
 
   const [groupName, setGroupName] = useState("");
   const [description, setDescription] = useState("");
@@ -82,7 +87,7 @@ export default function CreateGroupModal({ onClose, currentUserId }: Props) {
 
   const { mutate: createGroup, isPending } = useCreateGroupChat();
 
-  const users: User[] = (data?.pages ?? [])
+  const users: GroupMemberCandidate[] = (data?.pages ?? [])
     .flatMap((p) => p.items ?? [])
     .map((u: any) => ({
       id: u.id ?? u.userId,
@@ -122,7 +127,7 @@ export default function CreateGroupModal({ onClose, currentUserId }: Props) {
     SEARCH_DEBOUNCE_DELAY,
   );
 
-  const toggle = (user: User) => {
+  const toggle = (user: GroupMemberCandidate) => {
     setSelected((prev) =>
       prev.find((u) => u.id === user.id)
         ? prev.filter((u) => u.id !== user.id)
@@ -240,7 +245,7 @@ export default function CreateGroupModal({ onClose, currentUserId }: Props) {
                     <Avatar user={u} size="sm" />
 
                     <span className="text-xs font-medium text-indigo-700 max-w-[80px] truncate">
-                      {u.fullName.split(" ")[0]}
+                      {(u.fullName ?? u.username).split(" ")[0]}
                     </span>
 
                     <HiX
@@ -479,7 +484,7 @@ export default function CreateGroupModal({ onClose, currentUserId }: Props) {
                       <Avatar user={u} size="sm" />
 
                       <span className="text-xs text-gray-700 max-w-[90px] truncate">
-                        {u.fullName.split(" ")[0]}
+                        {(u.fullName ?? u.username).split(" ")[0]}
                       </span>
                     </div>
                   ))}

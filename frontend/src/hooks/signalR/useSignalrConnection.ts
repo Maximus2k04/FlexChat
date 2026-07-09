@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { SIGNALR_SERVER_EVENTS } from "../../constants/signalR/signalREvents";
+import { SIGNALR_SERVER_EVENTS } from "../../constants/SignalR/signalREvents";
 import { createConnection, getConnection } from "../../services/signalRService";
 import { usePresenceStore } from "../../stores/presenceStore";
 

@@ -7,7 +7,7 @@ import {
 } from "../constants/defaults";
 import type { Message } from "../types/message";
 import apiRoutes from "../constants/routes/apiRoutes";
-import { SIGNALR_SERVER_EVENTS } from "../constants/signalR/signalREvents";
+import { SIGNALR_SERVER_EVENTS } from "../constants/SignalR/signalREvents";
 
 let connectionListeners: Array<(conn: signalR.HubConnection | null) => void> =
   [];

@@ -1,5 +1,5 @@
-const BASE_URL = "https://localhost:7069/api";
-const SIGNALR_URL = "https://localhost:7069/hubs/chat";
+const BASE_URL = "/api";
+const SIGNALR_URL = "/hubs/chat";
 
 const ACCOUNT_BASE = "/account";
 const LOGIN_ROUTE = "/account/login";

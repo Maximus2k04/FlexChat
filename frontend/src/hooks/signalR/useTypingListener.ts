@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { SIGNALR_CLIENT_EVENTS } from "../../constants/signalR/signalREvents";
+import { SIGNALR_CLIENT_EVENTS } from "../../constants/SignalR/signalREvents";
 import { useTypingStore } from "../../stores/typingStore";
 import { queryClient } from "../../utils/queryClient";
 import { chatKeys } from "../tanstackQuery/useChatApi";

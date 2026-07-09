@@ -2,11 +2,13 @@ import { getDefaultAvatar } from "../../constants/defaults";
 
 import type { UserCardProps } from "../../types/user";
 
-const UserCard = ({ user, onClick }: UserCardProps) => {
+const UserCard = ({ user, isSelected, onClick }: UserCardProps) => {
   return (
     <div
       onClick={onClick}
-      className="flex items-center gap-3 p-3 cursor-pointer hover:bg-gray-800 rounded-md"
+      className={`flex items-center gap-3 p-3 cursor-pointer hover:bg-gray-800 rounded-md ${
+        isSelected ? "bg-gray-800" : ""
+      }`}
     >
       <div className="relative">
         <img
@@ -25,7 +27,7 @@ const UserCard = ({ user, onClick }: UserCardProps) => {
       <div className="flex flex-col">
         <span className="text-white text-sm">{user.username}</span>
         <span className="text-gray-400 text-xs">
-          {user.lastMessage || "Say hello"}
+          {user.statusMessage || "Say hello"}
         </span>
       </div>
       <div className="ml-auto text-gray-400 text-xs">

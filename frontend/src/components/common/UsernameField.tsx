@@ -18,7 +18,6 @@ export default function UsernameField({ registration, error }: UsernameFieldProp
       useCheckHook={useCheckUsername}
       showStatusWhen={(val) => val.length >= 3}
       unavailableMessage="Username is already taken"
-      unavailableLabel="taken"
     />
   );
 }

@@ -18,7 +18,6 @@ export default function EmailField({ registration, error }: EmailFieldProps) {
       useCheckHook={useCheckEmail}
       showStatusWhen={(val) => val.length >= 5 && val.includes("@")}
       unavailableMessage="Email is already registered"
-      unavailableLabel="already registered"
     />
   );
 }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { showNewMessageToast } from "../../components/common/ChatToast";
 import routes from "../../constants/routes/routes";
-import { SIGNALR_CLIENT_EVENTS } from "../../constants/signalR/signalREvents";
+import { SIGNALR_CLIENT_EVENTS } from "../../constants/SignalR/signalREvents";
 import { acknowledgeDelivery } from "../../services/signalRService";
 import { useAuthStore } from "../../stores/authStore";
 import { usePresenceStore } from "../../stores/presenceStore";
