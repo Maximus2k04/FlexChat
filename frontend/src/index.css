@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "daisyui/index.js" {
+  themes: all
+};
+@plugin "@tailwindcss/typography";
+
+
+* {
+  scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+* {
+  scrollbar-width: none;
+}
+
+
+* {
+  -ms-overflow-style: none;
+}
+
+
+html, body {
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes pulseRing {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(1.08); }
+}
+
+@keyframes bgPulse {
+  0%, 100% { background-color: rgba(108, 92, 231, 0.18); }
+  50%       { background-color: rgba(108, 92, 231, 0.28); }
+}
