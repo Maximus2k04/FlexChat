@@ -1,5 +1,6 @@
-const BASE_URL = "/api";
-const SIGNALR_URL = "/hubs/chat";
+const API_ORIGIN = import.meta.env.VITE_API_ORIGIN ?? "";
+const BASE_URL = `${API_ORIGIN}/api`;
+const SIGNALR_URL = `${API_ORIGIN}/hubs/chat`;
 
 const ACCOUNT_BASE = "/account";
 const LOGIN_ROUTE = "/account/login";
