@@ -467,12 +467,12 @@ const navigate = useNavigate();
 
 
   return (
-    <div className="flex h-screen overflow-hidden" style={pageStyle}>
+    <div className="relative flex h-screen overflow-hidden" style={pageStyle}>
       <div className="flex flex-col flex-1 overflow-hidden">
         <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 flex-shrink-0" style={{ backgroundColor: `var(--header-color, #ffffff)`, color: `var(--header-text-color, #111827)` }}>
           <button
             onClick={() => navigate(routes.chats)}
-            className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-100 hover:text-gray-700 transition-colors shrink-0"
           >
             <HiArrowLeft size={20} />
           </button>
@@ -480,7 +480,7 @@ const navigate = useNavigate();
           <img
             src={chatAvatar}
             alt={chatName}
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-10 h-10 rounded-full object-cover shrink-0"
           />
 
           <div className="flex-1 min-w-0">
@@ -528,9 +528,9 @@ const navigate = useNavigate();
 
           <button
             onClick={() => setShowPreferenceMenu((v) => !v)}
-            className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors ${showPreferenceMenu
-                ? "bg-black text-white"
-                : "bg-gray-900 text-white hover:bg-black"
+            className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors shrink-0 ${showPreferenceMenu
+                ? "bg-indigo-50 text-indigo-500"
+                : "text-gray-400 hover:bg-gray-100"
               }`}
           >
             <CiSettings size={20} />
@@ -539,7 +539,7 @@ const navigate = useNavigate();
           {isGroup && (
             <button
               onClick={() => setShowGroupPanel((v) => !v)}
-              className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors ${showGroupPanel
+              className={`w-9 h-9 flex items-center justify-center rounded-lg transition-colors shrink-0 ${showGroupPanel
                 ? "bg-indigo-50 text-indigo-500"
                 : "text-gray-400 hover:bg-gray-100"
                 }`}
