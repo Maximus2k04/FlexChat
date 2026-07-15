@@ -68,29 +68,30 @@ const CreateThemePage = () => {
     };
 
     if (isLoading) return <Loader />;
-    console.log(propertyTypes);
-    console.log("prp type");
 
     return (
-        <div className="min-h-screen bg-gray-50 py-8">
+        <div className="min-h-screen bg-gray-50 py-10">
             <div className="max-w-2xl mx-auto px-4 space-y-4">
-                <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-bold text-gray-900">Create Theme</h1>
+                <div className="flex items-center justify-between mb-3">
+                    <div>
+                        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Create Theme</h1>
+                        <p className="text-sm text-gray-400 mt-1">Define a new look for your chats.</p>
+                    </div>
                     <button
                         onClick={() => navigate(routes.themes)}
-                        className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400 transition-colors"
+                        className="px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors"
                     >
                         Back to List
                     </button>
                 </div>
 
-                <div className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
-                    <div className="p-5 border-b border-gray-200">
-                        <h2 className="text-2xl font-bold text-gray-900">Create New Theme</h2>
+                <div className="border border-gray-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+                    <div className="p-5 border-b border-gray-100">
+                        <h2 className="text-lg font-bold text-gray-900">Create New Theme</h2>
                     </div>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="p-5 bg-gray-50 space-y-6">
+                        <div className="p-5 bg-gray-50/60 space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-700">
                                     Theme Name <span className="text-red-500">*</span>
@@ -100,7 +101,7 @@ const CreateThemePage = () => {
                                     type="text"
                                     placeholder="Enter theme name"
                                     {...register('name')}
-                                    className={`w-full px-3 py-2 border-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.name ? 'border-red-500' : 'border-gray-300'
+                                    className={`w-full px-3.5 py-2.5 border rounded-xl outline-none focus:ring-2 transition-all ${errors.name ? 'border-red-300 focus:ring-red-500/10' : 'border-gray-200 focus:border-indigo-400 focus:ring-indigo-500/10'
                                         }`}
                                 />
                                 {errors.name && (
@@ -126,14 +127,14 @@ const CreateThemePage = () => {
                                                         type="color"
                                                         value={isValidColor(field.value) ? field.value : pt.defaultValue}
                                                         onChange={(e) => field.onChange(e.target.value)}
-                                                        className="w-14 h-10 rounded cursor-pointer border-2 border-gray-300"
+                                                        className="w-14 h-10 rounded-xl cursor-pointer border border-gray-200"
                                                     />
                                                     <input
                                                         type="text"
                                                         value={field.value}
                                                         onChange={(e) => field.onChange(e.target.value)}
                                                         placeholder={pt.defaultValue}
-                                                        className={`flex-1 px-3 py-2 border-2 rounded font-mono text-sm ${errors?.properties?.[pt.id] ? 'border-red-500' : 'border-gray-300'
+                                                        className={`flex-1 px-3.5 py-2.5 border rounded-xl font-mono text-sm outline-none focus:ring-2 transition-all ${errors?.properties?.[pt.id] ? 'border-red-300 focus:ring-red-500/10' : 'border-gray-200 focus:border-indigo-400 focus:ring-indigo-500/10'
                                                             }`}
                                                     />
                                                 </div>
@@ -146,7 +147,7 @@ const CreateThemePage = () => {
                                             type="number"
                                             {...register(`properties.${pt.id}` as const)}
                                             placeholder={pt.defaultValue}
-                                            className={`w-full px-3 py-2 border-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors?.properties?.[pt.id] ? 'border-red-500' : 'border-gray-300'
+                                            className={`w-full px-3.5 py-2.5 border rounded-xl outline-none focus:ring-2 transition-all ${errors?.properties?.[pt.id] ? 'border-red-300 focus:ring-red-500/10' : 'border-gray-200 focus:border-indigo-400 focus:ring-indigo-500/10'
                                                 }`}
                                         />
                                     )}
@@ -156,7 +157,7 @@ const CreateThemePage = () => {
                                             type="text"
                                             {...register(`properties.${pt.id}` as const)}
                                             placeholder={pt.defaultValue}
-                                            className={`w-full px-3 py-2 border-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors?.properties?.[pt.id] ? 'border-red-500' : 'border-gray-300'
+                                            className={`w-full px-3.5 py-2.5 border rounded-xl outline-none focus:ring-2 transition-all ${errors?.properties?.[pt.id] ? 'border-red-300 focus:ring-red-500/10' : 'border-gray-200 focus:border-indigo-400 focus:ring-indigo-500/10'
                                                 }`}
                                         />
                                     )}
@@ -170,11 +171,11 @@ const CreateThemePage = () => {
                                                     <button
                                                         type="button"
                                                         onClick={() => field.onChange(field.value === 'true' ? 'false' : 'true')}
-                                                        className={`relative inline-flex h-8 w-14 rounded-full transition-colors ${field.value === 'true' ? 'bg-blue-500' : 'bg-gray-300'
+                                                        className={`relative inline-flex h-8 w-14 rounded-full transition-colors ${field.value === 'true' ? 'bg-indigo-500' : 'bg-gray-300'
                                                             }`}
                                                     >
                                                         <span
-                                                            className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform mt-1 ${field.value === 'true' ? 'translate-x-7' : 'translate-x-1'
+                                                            className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-sm transition-transform mt-1 ${field.value === 'true' ? 'translate-x-7' : 'translate-x-1'
                                                                 }`}
                                                         />
                                                     </button>
@@ -198,7 +199,7 @@ const CreateThemePage = () => {
                                 <button
                                     type="submit"
                                     disabled={isPending}
-                                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                                    className="px-4 py-2 bg-indigo-500 text-white text-sm font-medium rounded-xl shadow-sm hover:bg-indigo-600 hover:shadow-md active:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all"
                                 >
                                     {isPending ? 'Creating...' : 'Create Theme'}
                                 </button>
@@ -206,7 +207,7 @@ const CreateThemePage = () => {
                                     type="button"
                                     onClick={() => navigate(routes.themes)}
                                     disabled={isPending}
-                                    className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400 disabled:bg-gray-200 transition-colors"
+                                    className="px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-xl border border-gray-200 hover:bg-gray-100 disabled:bg-gray-100 disabled:text-gray-400 transition-colors"
                                 >
                                     Cancel
                                 </button>

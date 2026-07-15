@@ -74,17 +74,19 @@ const ThemeDisplay = ({
 
     return (
         <>
-            <div className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+            <div className="border border-gray-100 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
                 <div
                     onClick={() => setIsOpen(!isOpen)}
-                    className="w-full flex items-center justify-between p-5 hover:bg-gray-50 transition-colors"
+                    className="w-full flex items-center justify-between p-5 hover:bg-gray-50/80 transition-colors cursor-pointer"
                 >
-                    <div className="flex items-center gap-4 flex-1 text-left">
-                        <MdPalette size={24} className="text-blue-500" />
-                        <div>
-                            <h2 className="text-lg font-bold text-gray-900">{theme.name}</h2>
+                    <div className="flex items-center gap-4 flex-1 text-left min-w-0">
+                        <div className="w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center shrink-0">
+                            <MdPalette size={20} className="text-indigo-500" />
+                        </div>
+                        <div className="min-w-0">
+                            <h2 className="text-[15px] font-semibold text-gray-900 truncate">{theme.name}</h2>
                             {theme.isDefault && (
-                                <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full inline-block mt-1">
+                                <span className="text-[11px] font-medium bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full inline-block mt-1">
                                     Default Theme
                                 </span>
                             )}
@@ -95,7 +97,7 @@ const ThemeDisplay = ({
                         <button
                             onClick={handleSetAsDefault}
                             disabled={isSettingDefault}
-                            className="mr-2 px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                            className="mr-2 shrink-0 px-3 py-1.5 bg-emerald-500 text-white text-xs font-medium rounded-lg hover:bg-emerald-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                         >
                             {isSettingDefault ? 'Setting...' : 'Set as Default'}
                         </button>
@@ -105,21 +107,21 @@ const ThemeDisplay = ({
                         <button
                             onClick={handleDelete}
                             disabled={isDeleting}
-                            className="mr-4 px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                            className="mr-3 shrink-0 px-3 py-1.5 bg-red-50 text-red-600 text-xs font-medium rounded-lg hover:bg-red-100 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
                         >
-                            <HiTrash size={16} />
+                            <HiTrash size={14} />
                             {isDeleting ? 'Deleting...' : 'Delete'}
                         </button>
                     )}
 
                     <HiChevronDown
-                        size={20}
-                        className={`text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                        size={18}
+                        className={`text-gray-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                     />
                 </div>
 
                 {isOpen && (
-                    <div className="border-t border-gray-200 p-5 bg-gray-50">
+                    <div className="border-t border-gray-100 p-5 bg-gray-50/60 animate-fade-in">
                         <div className="space-y-6">
                             {propertyTypes?.map((pt) => (
                                 <PropertyInputField
@@ -135,14 +137,14 @@ const ThemeDisplay = ({
                             <button
                                 onClick={handleSave}
                                 disabled={isSaving}
-                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                                className="px-4 py-2 bg-indigo-500 text-white text-sm font-medium rounded-xl shadow-sm hover:bg-indigo-600 hover:shadow-md active:scale-95 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all"
                             >
                                 {isSaving ? 'Saving...' : 'Save Changes'}
                             </button>
                             <button
                                 onClick={handleCancel}
                                 disabled={isSaving}
-                                className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400 disabled:bg-gray-200 transition-colors"
+                                className="px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-xl border border-gray-200 hover:bg-gray-100 disabled:bg-gray-100 disabled:text-gray-400 transition-colors"
                             >
                                 Cancel
                             </button>

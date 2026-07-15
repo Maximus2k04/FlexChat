@@ -50,7 +50,7 @@ const UserListPage = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="h-full flex overflow-hidden bg-[#0f0f1a]">
+    <div className="h-full flex overflow-hidden bg-gray-50">
       <UserList
         list={users}
         searchKey={searchKey}
@@ -61,7 +61,7 @@ const UserListPage = () => {
         handleSearchKeyChange={handleSearchKeyChange}
         handleUserSelect={handleUserSelect}
       />
-      <div className="flex-1 flex flex-col min-w-0 bg-[#0f0f1a]">
+      <div className="flex-1 flex flex-col min-w-0 bg-gray-50">
         <UserDetails user={selectedUser} />
       </div>
     </div>

@@ -48,10 +48,10 @@ const NavBtn = ({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 w-full md:w-auto px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer
+      className={`flex items-center gap-2 w-full md:w-auto px-3 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer
         ${
           active
-            ? "bg-black text-white"
+            ? "bg-black text-white shadow-sm"
             : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"
         }`}
     >
@@ -88,7 +88,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full bg-white border-b border-gray-200 px-4 md:px-8 py-3">
+      <nav className="w-full bg-white border-b border-gray-100 shadow-sm px-4 md:px-8 py-3 relative z-20">
         <div className="flex items-center justify-between">
           <div
             onClick={() =>

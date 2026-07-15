@@ -28,7 +28,7 @@ const ThemeListPagination = ({
           value={currentPageSize}
           onChange={(e) => onPageSizeChange(parseInt(e.target.value))}
           disabled={isLoading}
-          className="px-3 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+          className="px-3 py-2 border border-gray-200 rounded-xl outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/10 disabled:bg-gray-100 disabled:cursor-not-allowed transition-all"
         >
           <option value={5}>5</option>
           <option value={10}>10</option>
@@ -41,7 +41,7 @@ const ThemeListPagination = ({
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1 || isLoading}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 bg-indigo-500 text-white text-sm font-medium rounded-xl shadow-sm hover:bg-indigo-600 hover:shadow-md active:scale-95 disabled:bg-gray-200 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed transition-all"
         >
           <span className="flex items-center gap-2">
             <HiChevronDown size={16} className="rotate-90" />
@@ -63,14 +63,14 @@ const ThemeListPagination = ({
               const newPage = parseInt(e.target.value);
               if (newPage >= 1) onPageChange(newPage);
             }}
-            className="w-16 px-3 py-2 border-2 border-gray-300 rounded text-center focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+            className="w-16 px-3 py-2 border border-gray-200 rounded-xl text-center outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/10 disabled:bg-gray-100 disabled:cursor-not-allowed transition-all"
           />
         </div>
 
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={isLastPage || isLoading}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="px-4 py-2 bg-indigo-500 text-white text-sm font-medium rounded-xl shadow-sm hover:bg-indigo-600 hover:shadow-md active:scale-95 disabled:bg-gray-200 disabled:text-gray-400 disabled:shadow-none disabled:cursor-not-allowed transition-all"
         >
           <span className="flex items-center gap-2">
             Next

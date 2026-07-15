@@ -44,7 +44,7 @@ const PropertyInputField = ({
             setInputValue(e.target.value);
             onChange?.(e.target.value);
           }}
-          className="w-full px-3 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/10 transition-all"
         />
       </div>
     );
@@ -68,12 +68,12 @@ const PropertyInputField = ({
             <button
               type="button"
               aria-label={`${matchedType.displayName} description`}
-              className="text-gray-400 hover:text-gray-700 focus:outline-none"
+              className="text-gray-400 hover:text-indigo-500 focus:outline-none transition-colors"
             >
               <HiOutlineInformationCircle size={16} />
             </button>
 
-            <span className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 hidden w-64 -translate-x-1/2 rounded-md bg-gray-900 px-3 py-2 text-xs leading-5 text-white shadow-lg group-hover:block group-focus-within:block">
+            <span className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 hidden w-64 -translate-x-1/2 rounded-lg bg-gray-900 px-3 py-2 text-xs leading-5 text-white shadow-lg group-hover:block group-focus-within:block">
               {matchedType.description}
             </span>
           </span>
@@ -86,15 +86,15 @@ const PropertyInputField = ({
             type="color"
             value={isValidColor(inputValue) ? inputValue : (matchedType.defaultValue || '#000000')}
             onChange={(e) => handleChange(e.target.value)}
-            className="w-14 h-10 rounded cursor-pointer border-2 border-gray-300"
+            className="w-14 h-10 rounded-xl cursor-pointer border border-gray-200"
           />
           <input
             type="text"
             value={inputValue}
             onChange={(e) => handleChange(e.target.value)}
             placeholder={matchedType.defaultValue}
-            className={`flex-1 px-3 py-2 border-2 rounded font-mono text-sm ${
-              isValidColor(inputValue) ? 'border-gray-300' : 'border-red-300'
+            className={`flex-1 px-3.5 py-2.5 border rounded-xl font-mono text-sm outline-none focus:ring-2 transition-all ${
+              isValidColor(inputValue) ? 'border-gray-200 focus:border-indigo-400 focus:ring-indigo-500/10' : 'border-red-300 focus:ring-red-500/10'
             }`}
           />
         </div>
@@ -106,7 +106,7 @@ const PropertyInputField = ({
           value={inputValue}
           onChange={(e) => handleChange(e.target.value)}
           placeholder={matchedType.defaultValue}
-          className="w-full px-3 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/10 transition-all"
         />
       )}
 
@@ -116,7 +116,7 @@ const PropertyInputField = ({
           value={inputValue}
           onChange={(e) => handleChange(e.target.value)}
           placeholder={matchedType.defaultValue}
-          className="w-full px-3 py-2 border-2 border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/10 transition-all"
         />
       )}
 
@@ -126,11 +126,11 @@ const PropertyInputField = ({
             type="button"
             onClick={() => handleChange(inputValue === 'true' ? 'false' : 'true')}
             className={`relative inline-flex h-8 w-14 rounded-full transition-colors ${
-              inputValue === 'true' ? 'bg-blue-500' : 'bg-gray-300'
+              inputValue === 'true' ? 'bg-indigo-500' : 'bg-gray-300'
             }`}
           >
             <span
-              className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform mt-1 ${
+              className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-sm transition-transform mt-1 ${
                 inputValue === 'true' ? 'translate-x-7' : 'translate-x-1'
               }`}
             />

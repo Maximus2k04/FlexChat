@@ -80,9 +80,9 @@ const ChatPreferenceMenu = ({ chatId, isOpen, onClose }: ChatPreferenceMenuProps
   return (
     <div
       ref={menuRef}
-      className="absolute top-12 right-4 bg-white border border-gray-200 rounded-lg shadow-lg z-50 w-64 overflow-hidden"
+      className="absolute top-12 right-4 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 w-64 overflow-hidden animate-fade-in"
     >
-      <div className="p-3 border-b border-gray-100">
+      <div className="p-3.5 border-b border-gray-100">
         <h3 className="text-sm font-semibold text-gray-900">Chat Preferences</h3>
       </div>
 
@@ -97,12 +97,12 @@ const ChatPreferenceMenu = ({ chatId, isOpen, onClose }: ChatPreferenceMenuProps
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
               placeholder="Set chat nickname"
-              className="flex-1 min-w-0 rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+              className="flex-1 min-w-0 rounded-xl border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/10 transition-all"
             />
             <button
               onClick={handleSaveNickname}
               disabled={isUpdating}
-              className="shrink-0 whitespace-nowrap px-3 py-2 rounded-lg bg-blue-500 text-white text-sm hover:bg-blue-600 disabled:opacity-50"
+              className="shrink-0 whitespace-nowrap px-3 py-2 rounded-xl bg-indigo-500 text-white text-sm font-medium hover:bg-indigo-600 active:scale-95 transition-all disabled:opacity-50"
             >
               Save
             </button>
@@ -126,15 +126,15 @@ const ChatPreferenceMenu = ({ chatId, isOpen, onClose }: ChatPreferenceMenuProps
           </button>
 
           {showThemeDropdown && (
-            <div className="border-t border-gray-700 bg-gray-900 max-h-48 overflow-y-auto">
+            <div className="border-t border-gray-100 bg-gray-50/60 max-h-48 overflow-y-auto">
               <button
                 onClick={handleRemoveTheme}
                 className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors ${
-                  !chatPreferences.themeId ? "bg-gray-800 text-white" : "text-gray-200 hover:bg-gray-800"
+                  !chatPreferences.themeId ? "bg-indigo-50 text-indigo-700 font-medium" : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
                 <span>Default</span>
-                {!chatPreferences.themeId && <HiCheck size={16} />}
+                {!chatPreferences.themeId && <HiCheck size={16} className="text-indigo-500" />}
               </button>
 
               {themes.map((theme: any) => (
@@ -142,11 +142,11 @@ const ChatPreferenceMenu = ({ chatId, isOpen, onClose }: ChatPreferenceMenuProps
                   key={theme.id}
                   onClick={() => handleSetTheme(theme.id)}
                   className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors ${
-                    chatPreferences.themeId === theme.id ? "bg-gray-800 text-white" : "text-gray-200 hover:bg-gray-800"
+                    chatPreferences.themeId === theme.id ? "bg-indigo-50 text-indigo-700 font-medium" : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   <span>{theme.name}</span>
-                  {chatPreferences.themeId === theme.id && <HiCheck size={16} />}
+                  {chatPreferences.themeId === theme.id && <HiCheck size={16} className="text-indigo-500" />}
                 </button>
               ))}
             </div>
@@ -170,15 +170,15 @@ const ChatPreferenceMenu = ({ chatId, isOpen, onClose }: ChatPreferenceMenuProps
           </button>
 
           {showFontDropdown && (
-            <div className="border-t border-gray-700 bg-gray-900 max-h-48 overflow-y-auto">
+            <div className="border-t border-gray-100 bg-gray-50/60 max-h-48 overflow-y-auto">
               <button
                 onClick={handleRemoveFont}
                 className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors ${
-                  !chatPreferences.fontName ? "bg-gray-800 text-white" : "text-gray-200 hover:bg-gray-800"
+                  !chatPreferences.fontName ? "bg-indigo-50 text-indigo-700 font-medium" : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
                 <span>Default</span>
-                {!chatPreferences.fontName && <HiCheck size={16} />}
+                {!chatPreferences.fontName && <HiCheck size={16} className="text-indigo-500" />}
               </button>
 
               {FONTS.map((font) => (
@@ -186,11 +186,11 @@ const ChatPreferenceMenu = ({ chatId, isOpen, onClose }: ChatPreferenceMenuProps
                   key={font}
                   onClick={() => handleSetFont(font)}
                   className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors ${
-                    chatPreferences.fontName === font ? "bg-gray-800 text-white" : "text-gray-200 hover:bg-gray-800"
+                    chatPreferences.fontName === font ? "bg-indigo-50 text-indigo-700 font-medium" : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   <span style={{ fontFamily: font }}>{font}</span>
-                  {chatPreferences.fontName === font && <HiCheck size={16} />}
+                  {chatPreferences.fontName === font && <HiCheck size={16} className="text-indigo-500" />}
                 </button>
               ))}
             </div>
