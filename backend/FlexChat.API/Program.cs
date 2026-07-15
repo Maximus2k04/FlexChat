@@ -24,7 +24,7 @@ var jwtSettings = builder.Configuration
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactPolicy",
-        policy => policy.WithOrigins("http://localhost:5173")
+        policy => policy.WithOrigins("http://localhost:5173","https://flex-chat-sage.vercel.app/)
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials()
